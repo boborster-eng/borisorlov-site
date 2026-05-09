@@ -4,29 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Борис Орлов — B.O.Company / BOSAX</title>
-  <meta name="description" content="Борис Орлов — автор песен, B.O.Company, BOSAX, авторские песни, видео, AI Production и музыкальные проекты." />
   <style>
     :root{
       --bg:#080706; --panel:#14110d; --panel2:#1c1711; --gold:#d7ad64; --gold2:#f1d28a; --text:#f4eee2; --muted:#cbbfa9; --line:rgba(215,173,100,.28);
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at 70% 0%,#30200e 0,#080706 44%,#050403 100%);color:var(--text);line-height:1.6}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,sans-serif;background:radial-gradient(circle at 70% 0%,#30200e 0,#080706 44%,#050403 100%);color:var(--text);line-height:1.6}
     a{color:var(--gold2);text-decoration:none} a:hover{text-decoration:underline}.wrap{width:min(1180px,92vw);margin:auto}
     header{position:sticky;top:0;z-index:10;background:rgba(8,7,6,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
     .topline{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding:14px 0 8px;text-align:center}.nav{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;padding:0 0 14px}.nav a{color:var(--text);font-size:15px;opacity:.9}
-    .hero{padding:62px 0 42px}.grid{display:grid;grid-template-columns:360px 1fr;gap:38px;align-items:start}.photoCard{background:linear-gradient(145deg,var(--panel),#070605);border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.45)}.photoCard img{width:100%;display:block;border-radius:18px}.miniBio{margin-top:18px;color:var(--muted);font-size:15px}.badge{display:inline-block;border:1px solid var(--line);color:var(--gold2);padding:7px 12px;border-radius:999px;margin:4px 5px 4px 0;font-size:13px;background:rgba(215,173,100,.07)}
-    h1{font-size:58px;line-height:1.04;margin:6px 0 14px;letter-spacing:-.03em}.lead{font-size:22px;color:var(--muted);max-width:760px}.quote{margin:28px 0;padding:22px 24px;border-left:4px solid var(--gold);background:rgba(215,173,100,.08);border-radius:0 18px 18px 0;font-size:22px}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-block;padding:13px 18px;border-radius:999px;background:var(--gold);color:#171008;font-weight:700}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--gold2)}
-    section{padding:42px 0;border-top:1px solid rgba(215,173,100,.16)}h2{font-size:34px;margin:0 0 18px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(145deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:22px;padding:22px;min-height:150px}.card h3{margin:0 0 8px;color:var(--gold2);font-size:22px}.card p{color:var(--muted);margin:0 0 10px}.projectLinks{margin-top:12px;line-height:1.9}.bioText{font-size:18px;color:var(--muted);max-width:980px}.bioText strong{color:var(--text)}
-    .videos{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.video{position:relative;display:block;aspect-ratio:16/9;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#000;text-decoration:none}.video img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.78)}.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:rgba(0,0,0,.58);border:1px solid rgba(220,170,90,.75);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:30px;box-shadow:0 12px 34px rgba(0,0,0,.45)}.videoTitle{position:absolute;left:18px;right:18px;bottom:16px;color:#fff;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.85)}.links{display:flex;gap:12px;flex-wrap:wrap}.linkpill{border:1px solid var(--line);padding:11px 15px;border-radius:999px;background:rgba(255,255,255,.035)}footer{padding:36px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
-    .radioHero{margin-top:34px;background:linear-gradient(145deg,rgba(215,173,100,.13),rgba(20,17,13,.72));border:1px solid var(--line);border-radius:24px;padding:22px 24px;max-width:760px;box-shadow:0 22px 60px rgba(0,0,0,.28)}.radioHero h2{font-size:28px;margin:0 0 6px;color:var(--gold2)}.radioHero p{margin:0 0 14px;color:var(--muted);font-size:16px}.playerBox{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.playDot{width:46px;height:46px;border-radius:50%;background:var(--gold);color:#171008;display:grid;place-items:center;font-weight:900;font-size:20px}.radioPlayer{flex:1;min-width:260px}.radioFrame{width:100%;height:86px;border:0;border-radius:16px;background:#090807}.radioNote{font-size:13px;color:#a99b82;margin-top:10px}
-    @media(max-width:850px){.grid{grid-template-columns:1fr}.photoCard{max-width:420px}.cards{grid-template-columns:1fr}.videos{grid-template-columns:1fr}h1{font-size:42px}.lead,.quote{font-size:18px}.topline{letter-spacing:.08em}}
+    .hero{padding:62px 0 42px}.grid{display:grid;grid-template-columns:360px 1fr;gap:38px;align-items:start}.photoCard{background:linear-gradient(145deg,var(--panel),#070605);border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.45)}.photoCard img{width:100%;display:block;border-radius:18px}.miniBio{margin-top:18px;color:var(--muted);font-size:15px}
+    h1{font-size:58px;line-height:1.04;margin:6px 0 14px;letter-spacing:-.03em}.lead{font-size:22px;color:var(--muted);max-width:760px}.badge{display:inline-block;border:1px solid var(--line);color:var(--gold2);padding:7px 12px;border-radius:999px;margin:4px 5px 4px 0;font-size:13px;background:rgba(215,173,100,.07)}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-block;padding:13px 22px;border-radius:999px;background:var(--gold);color:#171008;font-weight:700}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--gold2)}
+    
+    /* НОВЫЙ БЛОК РЕЛИЗА */
+    .release-box{margin-top:42px; background:rgba(215,173,100,0.05); border:1px solid var(--line); border-radius:24px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.3); max-width:760px;}
+    .video-container{position:relative; padding-bottom:56.25%; height:0; overflow:hidden;}
+    .video-container iframe{position:absolute; top:0; left:0; width:100%; height:100%; border:0;}
+    
+    .radioHero{margin-top:34px;background:linear-gradient(145deg,rgba(215,173,100,.13),rgba(20,17,13,.72));border:1px solid var(--line);border-radius:24px;padding:22px 24px;max-width:760px}
+    section{padding:42px 0;border-top:1px solid rgba(215,173,100,.16)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(145deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:22px;padding:22px}
+    footer{padding:36px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
+    @media(max-width:850px){.grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}h1{font-size:42px}}
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <div class="topline">B.O.COMPANY • BOSAX • АВТОРСКИЕ ПЕСНИ • ВИДЕО • AI PRODUCTION • РАДИО • ПРОЕКТЫ</div>
+      <div class="topline">B.O.COMPANY • BOSAX • РАДИО • АТМОСФЕРА</div>
       <nav class="nav">
-        <a href="#home">Главная</a><a href="#bio">Биография</a><a href="#music">Музыка</a><a href="#radio">Радио</a><a href="#projects">Проекты</a><a href="#video">Видео</a><a href="#contacts">Контакты</a>
+        <a href="#home">Главная</a><a href="#bio">Биография</a><a href="#music">Музыка</a><a href="#radio">Радио</a><a href="#projects">Проекты</a><a href="#contacts">Контакты</a>
       </nav>
     </div>
   </header>
@@ -35,28 +42,32 @@
     <div class="grid">
       <aside class="photoCard">
         <img src="assets/boris-photo.jpg" alt="Борис Орлов" />
-        <div class="miniBio">
-          <strong>Борис Орлов</strong><br />
-          Автор песен, создатель музыкальных проектов B.O.Company и BOSAX. Авторская песня, рок, блюз, атмосферная электроника, фолк и современные AI-инструменты в продакшне.
-        </div>
+        <div class="miniBio"><strong>Борис Орлов</strong><br>Автор песен, создатель B.O.Company и BOSAX.</div>
       </aside>
       <div>
-        <span class="badge">Автор</span><span class="badge">B.O.Company</span><span class="badge">BOSAX</span><span class="badge">150+ песен</span>
-        <h1>Борис Орлов</h1>
-        <p class="lead">Музыка. Атмосфера. История. Авторские песни, видео, музыкальные проекты и современный AI Production без попытки прятаться от XXI века.</p>
-        <div class="quote">AI — это инструмент. Музыка — остаётся искусством.</div>
-        <div class="actions"><a class="btn" href="#music">Слушать музыку</a><a class="btn ghost" href="#projects">Смотреть проекты</a></div>
+        <span class="badge">Автор</span><span class="badge">B.O.Company</span><h1>Борис Орлов</h1>
+        <p class="lead">Музыка. Атмосфера. История. Авторские песни и современный AI Production.</p>
+        
+        <div class="actions">
+          <a class="btn" href="#music">Слушать музыку</a>
+          <a class="btn ghost" href="#projects">Смотреть проекты</a>
+        </div>
+
+        <div class="release-box">
+          <div style="padding:15px 20px; background:rgba(215,173,100,0.1); font-weight:bold; color:var(--gold2); font-size:14px; letter-spacing:1px;">СВЕЖИЙ РЕЛИЗ</div>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/ehxJjiMAQhs" allowfullscreen></iframe>
+          </div>
+          <div style="padding:20px; text-align:center;">
+            <h3 style="margin:0; font-size:24px; color:var(--gold2);">"АТМОСФЕРА"</h3>
+            <p style="font-style:italic; color:var(--muted);">«Каждый звук — это новый слой...»</p>
+            <a href="#radio" class="btn" style="margin-top:10px; background:var(--gold2); padding:15px 30px;">▶ ВКЛЮЧИТЬ ЭФИР РАДИО</a>
+          </div>
+        </div>
 
         <div class="radioHero" id="radio">
           <h2>Музыкальная КАЧегарка</h2>
-          <p>Авторское радио Бориса Орлова: песни, проекты, настроение, кач и музыкальные истории.</p>
-          <div class="playerBox">
-            <div class="playDot">▶</div>
-            <div class="radioPlayer">
-              <iframe class="radioFrame" src="https://myradio24.com/bocompany?autologin" title="Музыкальная КАЧегарка — B.O.Company Radio" loading="lazy"></iframe>
-            </div>
-          </div>
-          <div class="radioNote"><a href="radio.html">Открыть отдельную страницу радио</a> · <a href="https://myradio24.com/bocompany?autologin" target="_blank" rel="noopener">Открыть радио в отдельном окне</a></div>
+          <iframe style="width:100%; height:86px; border:0; border-radius:16px; background:#090807;" src="https://myradio24.com/bocompany?autologin"></iframe>
         </div>
       </div>
     </div>
@@ -64,57 +75,18 @@
 
   <section id="bio"><div class="wrap">
     <h2>Биография</h2>
-    <div class="bioText">
-      <p><strong>Борис Орлов</strong> — автор песен, музыкальный продюсер и создатель проектов <strong>B.O.Company</strong> и <strong>BOSAX</strong>. Его песни соединяют личную интонацию, современное звучание, рок, блюз, атмосферную электронику, фолк, country и cinematic-подход.</p>
-      <p>В центре проекта — авторская песня, музыкальная история и работа с образом. B.O.Company остаётся основной выпускающей компанией и продакшном, BOSAX используется как исполнительское имя для части релизов.</p>
-      <p>Среди важных направлений — сотрудничество с Рустэмом Султановым в проекте Rustem & Boris, а также кантри-юмористический проект «ПОПОЙ-КА / Попой-Ка».</p>
-      <p><a href="https://muzsmi.ru/2024/09/26/борис-орлов-биография/" target="_blank" rel="noopener">Источник BIO — MUZSMI</a></p>
-    </div>
-  </div></section>
-
-  <section id="projects"><div class="wrap">
-    <h2>Проекты</h2>
-    <div class="cards">
-      <div class="card"><h3>B.O.Company</h3><p>Основная авторская платформа: тексты, идеи, продакшн, выпуск музыки и визуальная атмосфера проекта.</p></div>
-      <div class="card"><h3>BOSAX</h3><p>Исполнительская линия для отдельных релизов, где важны вокальный образ, настроение и готовая сценическая подача.</p></div>
-      <div class="card"><h3>Музыкальная КАЧегарка</h3><p>Авторское радио и медиа-пространство Бориса Орлова: песни, истории, новые релизы и музыкальный кач.</p></div>
-      <div class="card"><h3>Rustem & Boris</h3><p>Совместный авторский проект с Рустэмом Султановым: песни, тексты, альбомы и музыкальные истории.</p></div>
-      <div class="card"><h3>ПОПОЙ-КА / Попой-Ка</h3><p>Кантри и юмористический музыкальный проект Бориса Орлова.</p></div>
+    <div style="font-size:18px; color:var(--muted);">
+      <p>Борис Орлов — автор песен, музыкальный продюсер и создатель проектов B.O.Company и BOSAX.</p>
+      <p><a href="https://muzsmi.ru/2024/09/26/борис-орлов-биография/" target="_blank">Читать полную биографию на MUZSMI</a></p>
     </div>
   </div></section>
 
   <section id="music"><div class="wrap">
-    <h2>Музыка</h2>
+    <h2>Музыка и Контакты</h2>
     <div class="cards">
-      <div class="card"><h3>Spotify</h3><p>Страница артиста и релизы B.O.Company / BOSAX.</p><div class="projectLinks"><a href="https://open.spotify.com/artist/3qsicx6WhSPjKmai3lW5LT" target="_blank" rel="noopener">Открыть Spotify</a></div></div>
-      <div class="card"><h3>Yandex Music</h3><p>Каталог песен и релизов Бориса Орлова.</p><div class="projectLinks"><a href="https://music.yandex.ru/artist/22794455" target="_blank" rel="noopener">Открыть Yandex Music</a></div></div>
-      <div class="card"><h3>VK / Telegram</h3><p>Видео, новости, публикации и связь с аудиторией.</p><div class="projectLinks"><a href="https://vk.com/boorisorlov" target="_blank" rel="noopener">VK</a><br><a href="https://t.me/BorisOrlov55" target="_blank" rel="noopener">Telegram</a></div></div>
-    </div>
-  </div></section>
-
-  <section id="video"><div class="wrap">
-    <h2>Видео</h2>
-    <div class="videos">
-      <a class="video" href="https://www.youtube.com/watch?v=0ZD9r1xiflc" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/0ZD9r1xiflc/hqdefault.jpg" alt="Видео 1"><span class="play">▶</span><span class="videoTitle">Видео B.O.Company</span></a>
-      <a class="video" href="https://www.youtube.com/watch?v=UQuliBCN9o4" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/UQuliBCN9o4/hqdefault.jpg" alt="Видео 2"><span class="play">▶</span><span class="videoTitle">Видео BOSAX</span></a>
-      <a class="video" href="https://www.youtube.com/watch?v=yaLEs1h2E5o" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/yaLEs1h2E5o/hqdefault.jpg" alt="Видео 3"><span class="play">▶</span><span class="videoTitle">Музыкальный визуал</span></a>
-      <a class="video" href="https://www.youtube.com/watch?v=rJRjMFjWH_k" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/rJRjMFjWH_k/hqdefault.jpg" alt="Видео 4"><span class="play">▶</span><span class="videoTitle">Новый проект</span></a>
-    </div>
-  </div></section>
-
- <section id="contacts"><div class="wrap">
-    <h2>Контакты и Стриминги</h2>
-    <div class="links">
-      <a class="linkpill" href="https://music.yandex.ru/artist/22794455" target="_blank" rel="noopener" style="background:rgba(255,235,0,0.1); border-color:#ffeb00;">Yandex Music</a>
-      <a class="linkpill" href="https://open.spotify.com/artist/3qsicx6WhSPjKmai3lW5LT" target="_blank" rel="noopener" style="background:rgba(30,215,96,0.1); border-color:#1ed760;">Spotify</a>
-      
-      <a class="linkpill" href="boborster@gmail.com" style="background:rgba(215,173,100,0.2);">Написать на почту</a>
-
-      <a class="linkpill" href="https://www.youtube.com/@BorisOrlov" target="_blank" rel="noopener">YouTube</a>
-      <a class="linkpill" href="https://vk.com/video/@boorisorlov" target="_blank" rel="noopener">VK Video</a>
-      <a class="linkpill" href="https://t.me/BorisOrlov55" target="_blank" rel="noopener">Telegram</a>
-      <a class="linkpill" href="https://www.facebook.com/profile.php?id=100000457608503" target="_blank" rel="noopener">Facebook</a>
-      <a class="linkpill" href="https://myradio24.com/bocompany?autologin" target="_blank" rel="noopener">Radio</a>
+      <div class="card"><h3>Yandex Music</h3><a href="https://music.yandex.ru/artist/22794455" target="_blank">Открыть каталог</a></div>
+      <div class="card"><h3>Telegram</h3><a href="https://t.me/BorisOrlov55" target="_blank">Подписаться</a></div>
+      <div class="card"><h3>YouTube</h3><a href="https://www.youtube.com/@BorisOrlov" target="_blank">Смотреть канал</a></div>
     </div>
   </div></section>
 
