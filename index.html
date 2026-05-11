@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Борис Орлов — B.O.Company / BOSAX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#080706; --panel:#14110d; --panel2:#1c1711; --gold:#d7ad64; --gold2:#f1d28a; --text:#f4eee2; --muted:#cbbfa9; --line:rgba(215,173,100,.28);
@@ -28,6 +29,42 @@
     .card h3{margin:0 0 10px; color:var(--gold2)}
     footer{padding:40px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
     @media(max-width:850px){.grid{grid-template-columns:1fr}.hero{padding:30px 0}h1{font-size:42px}}
+
+    /* СТИЛИ НОВОГО ПЛЕЕРА */
+    @keyframes k_spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .kachegarka-deck {
+      background: #000; border-radius: 12px; padding: 20px;
+      display: flex; flex-direction: row; align-items: center; gap: 20px;
+      border: 1px solid #333; margin-top: 15px; position: relative;
+    }
+    @media (max-width: 600px) { .kachegarka-deck { flex-direction: column; text-align: center; } }
+    .vinyl-record {
+      width: 140px; height: 140px;
+      background: radial-gradient(circle, #333 2%, #111 5%, #222 10%, #111 15%, #222 20%, #000 50%);
+      border-radius: 50%; position: relative; border: 3px solid #111; flex-shrink: 0;
+    }
+    .is-spinning { animation: k_spin 4s linear infinite; }
+    .vinyl-label {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 45px; height: 45px; background: #e50914; border-radius: 50%; border: 2px solid #111;
+      color: white; font-family: 'Oswald', sans-serif; font-size: 5px; text-align: center;
+      display: flex; align-items: center; justify-content: center; line-height: 1.1; text-transform: uppercase;
+    }
+    .control-section { flex-grow: 1; display: flex; flex-direction: column; gap: 10px; width: 100%; }
+    .brand-logo-small { font-family: 'Oswald', sans-serif; font-size: 14px; color: var(--muted); text-transform: uppercase; }
+    .brand-logo-small .highlight { color: #e50914; font-size: 24px; font-weight: bold; }
+    .info-panel-small {
+      background: #080808; min-height: 50px; border-radius: 4px; border: 1px solid #222;
+      display: flex; align-items: center; justify-content: center; padding: 5px 15px;
+    }
+    #displayContent { font-family: 'Orbitron', sans-serif; font-size: 14px; text-align: center; transition: 0.3s; }
+    .mode-standby { color: #222; }
+    .mode-on { color: #e50914; text-shadow: 0 0 8px #e50914; }
+    .btn-main-small {
+      width: 100%; background: var(--gold); color: #171008; padding: 12px; border: none;
+      border-radius: 4px; font-family: 'Oswald', sans-serif; font-size: 14px; text-transform: uppercase; cursor: pointer;
+    }
+    .on .btn-main-small { background: #e50914; color: white; box-shadow: 0 0 15px rgba(229, 9, 20, 0.4); }
   </style>
 </head>
 <body>
@@ -73,12 +110,63 @@
 
         <div class="radioHero" id="radio">
           <h2>Музыкальная КАЧегарка</h2>
-          <p style="color:var(--muted); margin-bottom:15px;">Авторское радио: песни, проекты, настроение и музыкальные истории.</p>
-          <iframe style="width:100%; height:86px; border:0; border-radius:16px; background:#090807;" src="https://myradio24.com/bocompany?autologin"></iframe>
+          <p style="color:var(--muted); margin-bottom:5px;">Авторское радио: песни, проекты, настроение и музыкальные истории.</p>
+          
+          <div id="main_deck" class="kachegarka-deck">
+            <div id="v_disk" class="vinyl-record">
+              <div class="vinyl-label">BOSAX &<br>B.O.Company</div>
+            </div>
+            <div class="control-section">
+              <div class="brand-logo-small">МУЗЫКАЛЬНАЯ <span class="highlight">КАЧ</span>ЕГАРКА</div>
+              <div class="info-panel-small">
+                <div id="displayContent" class="mode-standby">SYSTEM STANDBY</div>
+              </div>
+              <button id="p_btn" class="btn-main-small" onclick="toggleKachegarka()">Запустить систему</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </main>
+
+  <audio id="radio_stream" src="https://myradio24.org/bocompany" crossorigin="anonymous"></audio>
+  <script>
+    const k_audio = document.getElementById('radio_stream');
+    const k_deck = document.getElementById('main_deck');
+    const k_vinyl = document.getElementById('v_disk');
+    const k_display = document.getElementById('displayContent');
+    const k_btn = document.getElementById('p_btn');
+
+    function toggleKachegarka() {
+      if (k_audio.paused) {
+        k_audio.play();
+        k_deck.classList.add('on');
+        k_vinyl.classList.add('is-spinning');
+        k_btn.innerText = "Остановить";
+        k_display.classList.remove('mode-standby');
+        k_display.classList.add('mode-on');
+        k_display.innerText = "ПОДКЛЮЧЕНИЕ...";
+        updateMetadata();
+      } else {
+        k_audio.pause();
+        k_deck.classList.remove('on');
+        k_vinyl.classList.remove('is-spinning');
+        k_btn.innerText = "Запустить систему";
+        k_display.classList.remove('mode-on');
+        k_display.classList.add('mode-standby');
+        k_display.innerText = "SYSTEM STANDBY";
+      }
+    }
+    async function updateMetadata() {
+      if (k_audio.paused) return;
+      try {
+        const r = await fetch('https://myradio24.org/api/get?login=bocompany');
+        const d = await r.json();
+        if (d && d.song) k_display.innerText = d.song.toUpperCase();
+      } catch (e) { k_display.innerText = "В ЭФИРЕ: B.O. COMPANY"; }
+      setTimeout(updateMetadata, 15000);
+    }
+  </script>
 
   <section id="bio"><div class="wrap">
     <h2>Биография</h2>
@@ -119,6 +207,10 @@
       </div>
     </div>
   </div></section>
+
+  <footer><div class="wrap">© B.O.Company / BOSAX / Boris Orlov</div></footer>
+</body>
+</html>
 
   <footer><div class="wrap">© B.O.Company / BOSAX / Boris Orlov</div></footer>
 </body>
