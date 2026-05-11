@@ -1,21 +1,131 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Музыкальная КАЧегарка — B.O.Company Radio</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#080706;--panel:#14110d;--gold:#d7ad64;--gold2:#f1d28a;--text:#f4eee2;--muted:#cbbfa9;--line:rgba(215,173,100,.28)}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at 70% 0%,#30200e 0,#080706 44%,#050403 100%);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}.box{width:min(900px,94vw);background:linear-gradient(145deg,var(--panel),#070605);border:1px solid var(--line);border-radius:28px;padding:34px;box-shadow:0 24px 70px rgba(0,0,0,.45)}h1{font-size:46px;margin:0 0 12px;color:var(--gold2)}p{font-size:20px;color:var(--muted);line-height:1.6}.frame{width:100%;height:120px;border:0;border-radius:18px;background:#090807;margin:20px 0}.btn{display:inline-block;padding:13px 18px;border-radius:999px;background:var(--gold);color:#171008;font-weight:700;text-decoration:none;margin-right:10px}.ghost{background:transparent;border:1px solid var(--line);color:var(--gold2)}
+  @keyframes k_spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  
+  /* ГЛАВНЫЙ КОРПУС */
+  .kachegarka-deck {
+    background: linear-gradient(180deg, #1a1a1a 0%, #080808 100%);
+    border-radius: 15px; padding: 30px;
+    display: flex; flex-direction: row; align-items: center; gap: 40px;
+    border: 1px solid #222; 
+    width: 95%; max-width: 850px; min-height: 300px;
+    margin: 20px auto; position: relative; border-bottom: 8px solid #000;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    color: white; font-family: sans-serif;
+  }
+
+  /* АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ */
+  @media (max-width: 768px) {
+    .kachegarka-deck { flex-direction: column; text-align: center; height: auto; padding: 20px; }
+    .vinyl-record { width: 200px !important; height: 200px !important; }
+  }
+
+  /* ВИНИЛОВЫЙ ДИСК */
+  .vinyl-record {
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, #333 2%, #111 5%, #222 10%, #111 15%, #222 20%, #000 50%);
+    border-radius: 50%; position: relative; border: 4px solid #080808; flex-shrink: 0;
+  }
+  .is-spinning { animation: k_spin 4s linear infinite; }
+
+  /* ЦЕНТР ВИНИЛА */
+  .vinyl-label {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 85px; height: 85px; background: #e50914; border-radius: 50%; border: 4px solid #111;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-family: 'Oswald', sans-serif; font-size: 9px; text-align: center;
+    line-height: 1.2; text-transform: uppercase; font-weight: bold;
+  }
+
+  /* СЕКЦИЯ УПРАВЛЕНИЯ */
+  .control-section { flex-grow: 1; display: flex; flex-direction: column; gap: 15px; width: 100%; }
+
+  /* ЛОГОТИП С ВЫДЕЛЕННЫМ "КАЧ" */
+  .brand-logo { font-family: 'Oswald', sans-serif; font-size: 20px; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+  .brand-logo .highlight { 
+    color: #e50914; font-size: 42px; vertical-align: middle; 
+    margin: 0 5px; text-shadow: 0 0 15px rgba(229, 9, 20, 0.8); 
+  }
+
+  /* ДИСПЛЕЙ */
+  .info-panel {
+    background: #000; min-height: 80px; border-radius: 6px; border: 1px solid #333;
+    display: flex; align-items: center; justify-content: center; padding: 10px 20px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,1);
+  }
+
+  #displayContent { font-family: 'Orbitron', sans-serif; font-size: 17px; text-align: center; transition: 0.3s; }
+  .mode-standby { color: #1a1a1a; font-size: 14px !important; letter-spacing: 2px; }
+  .mode-on { color: #e50914; text-shadow: 0 0 12px #e50914; }
+
+  /* КНОПКА */
+  .action-panel { background: #111; padding: 15px; border-radius: 6px; border: 1px solid #222; }
+  .btn-main {
+    width: 100%; background: #222; color: #888; padding: 18px; border: 1px solid #333;
+    border-radius: 4px; font-family: 'Oswald', sans-serif; font-size: 18px; 
+    text-transform: uppercase; cursor: pointer; transition: 0.2s; letter-spacing: 1px;
+  }
+  .on .btn-main { background: #e50914; color: #fff; border-color: #ff4444; box-shadow: 0 0 25px rgba(229, 9, 20, 0.5); }
 </style>
-</head>
-<body>
-<div class="box">
-<h1>Музыкальная КАЧегарка</h1>
-<p>Авторское радио B.O.Company / Boris Orlov. Звук, песни, проекты и музыкальная атмосфера.</p>
-<iframe class="frame" src="https://myradio24.com/bocompany?autologin" title="Музыкальная КАЧегарка"></iframe>
-<a class="btn" href="https://myradio24.com/bocompany?autologin" target="_blank" rel="noopener">Открыть радио</a>
-<a class="btn ghost" href="index.html">Назад на сайт</a>
+
+<div id="main_deck" class="kachegarka-deck">
+  <div id="v_disk" class="vinyl-record">
+    <div class="vinyl-label">BOSAX &<br>B.O.Company</div>
+  </div>
+
+  <div class="control-section">
+    <div class="brand-logo">Музыкальная <span class="highlight">КАЧ</span>егарка</div>
+    <div class="info-panel">
+      <div id="displayContent" class="mode-standby">SYSTEM STANDBY</div>
+    </div>
+    <div class="action-panel">
+      <button id="p_btn" class="btn-main" onclick="toggleKachegarka()">Запустить систему</button>
+    </div>
+  </div>
 </div>
-</body>
-</html>
+
+<audio id="radio_stream" src="https://myradio24.org/bocompany" crossorigin="anonymous"></audio>
+
+<script>
+  const k_audio = document.getElementById('radio_stream');
+  const k_deck = document.getElementById('main_deck');
+  const k_vinyl = document.getElementById('v_disk');
+  const k_display = document.getElementById('displayContent');
+  const k_btn = document.getElementById('p_btn');
+
+  function toggleKachegarka() {
+    if (k_audio.paused) {
+      k_audio.play();
+      k_deck.classList.add('on');
+      k_vinyl.classList.add('is-spinning');
+      k_btn.innerText = "Остановить";
+      k_display.classList.remove('mode-standby');
+      k_display.classList.add('mode-on');
+      k_display.innerText = "ПОДКЛЮЧЕНИЕ...";
+      updateMetadata();
+    } else {
+      k_audio.pause();
+      k_deck.classList.remove('on');
+      k_vinyl.classList.remove('is-spinning');
+      k_btn.innerText = "Запустить систему";
+      k_display.classList.remove('mode-on');
+      k_display.classList.add('mode-standby');
+      k_display.innerText = "SYSTEM STANDBY";
+    }
+  }
+
+  async function updateMetadata() {
+    if (k_audio.paused) return;
+    try {
+      const r = await fetch('https://myradio24.org/api/get?login=bocompany');
+      const d = await r.json();
+      if (d && d.song) {
+        k_display.innerText = d.song.toUpperCase();
+      }
+    } catch (e) {
+      k_display.innerText = "В ЭФИРЕ: B.O. COMPANY";
+    }
+    setTimeout(updateMetadata, 15000);
+  }
+</script>
