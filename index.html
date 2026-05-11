@@ -130,6 +130,7 @@
   </main>
 
   <audio id="radio_stream" src="https://myradio24.org/bocompany" crossorigin="anonymous"></audio>
+
   <script>
     const k_audio = document.getElementById('radio_stream');
     const k_deck = document.getElementById('main_deck');
@@ -157,15 +158,27 @@
         k_display.innerText = "SYSTEM STANDBY";
       }
     }
-    async function updateMetadata() {
+
+    function updateMetadata() {
       if (k_audio.paused) return;
-      try {
-        const r = await fetch('https://myradio24.org/api/get?login=bocompany');
-        const d = await r.json();
-        if (d && d.song) k_display.innerText = d.song.toUpperCase();
-      } catch (e) { k_display.innerText = "В ЭФИРЕ: B.O. COMPANY"; }
+      const oldScript = document.getElementById('metadata_script');
+      if (oldScript) oldScript.remove();
+
+      const script = document.createElement('script');
+      script.id = 'metadata_script';
+      script.src = 'https://myradio24.org/api/get?login=bocompany&callback=parseMusic&t=' + Date.now();
+      document.body.appendChild(script);
+      
       setTimeout(updateMetadata, 15000);
     }
+
+    window.parseMusic = function(data) {
+      if (data && data.song) {
+        k_display.innerText = data.song.toUpperCase();
+      } else {
+        k_display.innerText = "В ЭФИРЕ: B.O. COMPANY";
+      }
+    };
   </script>
 
   <section id="bio"><div class="wrap">
